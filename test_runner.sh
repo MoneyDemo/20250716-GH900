@@ -6,8 +6,11 @@ echo "=== BMI 計算機測試腳本 ==="
 echo ""
 
 # 設定 Python 執行路径
-PYTHON_CMD="/workspaces/20250716-GH900/.venv/bin/python"
-
+PYTHON_CMD=$(which python || which python3)
+if [ -z "$PYTHON_CMD" ]; then
+    echo "Error: Python interpreter not found. Please ensure Python is installed and available in PATH."
+    exit 1
+fi
 echo "1. 執行所有單元測試"
 echo "===================="
 $PYTHON_CMD -m unittest test_bmi.py -v
