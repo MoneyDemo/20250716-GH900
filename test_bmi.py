@@ -49,7 +49,7 @@ class TestBMICalculator(unittest.TestCase):
         for weight, height, expected_bmi in self.test_cases_imperial:
             with self.subTest(weight=weight, height=height):
                 result = calculate_bmi_imperial(weight, height)
-                self.assertAlmostEqual(result, expected_bmi, places=1,
+                self.assertAlmostEqual(result, expected_bmi, places=2,
                                      msg=f"BMI計算錯誤: 體重{weight}lbs, 身高{height}inches")
 
     def test_calculate_bmi_metric_edge_cases(self):
